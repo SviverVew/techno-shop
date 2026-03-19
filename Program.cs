@@ -6,7 +6,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
-builder.Services.AddBlazorWebAssemblyHostedApps();
+// builder.Services.AddBlazorWebAssemblyHostedApps();
 
 builder.Services.AddDbContext<TechnoShopDbContext>(opts =>
 {

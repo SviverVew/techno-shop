@@ -6,7 +6,7 @@ namespace TechnoShop.Models {
         public string Description { get; set; } = String.Empty;
         public string Brand { get; set; } = String.Empty;
         public string Specification { get; set; } = String.Empty;
-        [Column(TypeName = "decimal(8, 2)")]
+        [Column(TypeName = "decimal(18, 2)")]
         public decimal Price { get; set; }
         public string Category { get; set; } = String.Empty;
         public int StockQuantity { get; set; } = 0;

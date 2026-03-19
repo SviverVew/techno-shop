@@ -10,7 +10,8 @@ namespace TechnoShop.Infrastructure
     public override void Process(TagHelperContext context, TagHelperOutput output)
     {
       output.Content.SetContent(Price.ToString("C0", System.Globalization.CultureInfo.GetCultureInfo("vi-VN")));
-      output.AddClass("price-display");
+      var classAttr = output.Attributes["class"]?.Value?.ToString();
+      output.Attributes.SetAttribute("class", string.IsNullOrEmpty(classAttr) ? "price-display" : classAttr + " price-display");
     }
   }
 }

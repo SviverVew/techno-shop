@@ -1,6 +1,6 @@
 {
-  "SerializedFilePath": "/Users/minhluongvan/Projects/Dotnet/ASP-NET-CORE6/LTWeb NC/Bai 4/SportsStore/obj/Debug/net6.0/project.razor.json",
-  "FilePath": "/Users/minhluongvan/Projects/Dotnet/ASP-NET-CORE6/LTWeb NC/Bai 4/SportsStore/SportsStore.csproj",
+  "SerializedFilePath": "/Users/minhluongvan/Projects/Dotnet/ASP-NET-CORE6/LTWeb NC/Bai 4/TechnoShop/obj/Debug/net6.0/project.razor.json",
+  "FilePath": "/Users/minhluongvan/Projects/Dotnet/ASP-NET-CORE6/LTWeb NC/Bai 4/TechnoShop/TechnoShop.csproj",
   "Configuration": {
     "ConfigurationName": "MVC-3.0",
     "LanguageVersion": "6.0",
@@ -12653,8 +12653,8 @@
       {
         "HashCode": 1585029040,
         "Kind": "ITagHelper",
-        "Name": "SportsStore.Infrastructure.PageLinkTagHelper",
-        "AssemblyName": "SportsStore",
+        "Name": "TechnoShop.Infrastructure.PageLinkTagHelper",
+        "AssemblyName": "TechnoShop",
         "CaseSensitive": false,
         "TagMatchingRules": [
           {
@@ -12670,7 +12670,7 @@
           {
             "Kind": "ITagHelper",
             "Name": "page-model",
-            "TypeName": "SportsStore.Models.ViewModels.PagingInfo",
+            "TypeName": "TechnoShop.Models.ViewModels.PagingInfo",
             "Metadata": {
               "Common.PropertyName": "PageModel"
             }
@@ -12728,8 +12728,8 @@
         ],
         "Metadata": {
           "Runtime.Name": "ITagHelper",
-          "Common.TypeName": "SportsStore.Infrastructure.PageLinkTagHelper",
-          "Common.TypeNamespace": "SportsStore.Infrastructure",
+          "Common.TypeName": "TechnoShop.Infrastructure.PageLinkTagHelper",
+          "Common.TypeNamespace": "TechnoShop.Infrastructure",
           "Common.TypeNameIdentifier": "PageLinkTagHelper"
         }
       },
@@ -14972,7 +14972,7 @@
         "HashCode": -87414051,
         "Kind": "MVC.ViewComponent",
         "Name": "__Generated__CartSummaryViewComponentTagHelper",
-        "AssemblyName": "SportsStore",
+        "AssemblyName": "TechnoShop",
         "CaseSensitive": false,
         "TagMatchingRules": [
           {
@@ -14989,7 +14989,7 @@
         "HashCode": 45483451,
         "Kind": "MVC.ViewComponent",
         "Name": "__Generated__NavigationMenuViewComponentTagHelper",
-        "AssemblyName": "SportsStore",
+        "AssemblyName": "TechnoShop",
         "CaseSensitive": false,
         "TagMatchingRules": [
           {
@@ -18488,70 +18488,70 @@
     ],
     "CSharpLanguageVersion": 1000
   },
-  "RootNamespace": "SportsStore",
+  "RootNamespace": "TechnoShop",
   "Documents": [
     {
-      "FilePath": "/Users/minhluongvan/Projects/Dotnet/ASP-NET-CORE6/LTWeb NC/Bai 4/SportsStore/Views/Order/Checkout.cshtml",
+      "FilePath": "/Users/minhluongvan/Projects/Dotnet/ASP-NET-CORE6/LTWeb NC/Bai 4/TechnoShop/Views/Order/Checkout.cshtml",
       "TargetPath": "Views\\Order\\Checkout.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "/Users/minhluongvan/Projects/Dotnet/ASP-NET-CORE6/LTWeb NC/Bai 4/SportsStore/Views/Shared/_Layout.cshtml",
+      "FilePath": "/Users/minhluongvan/Projects/Dotnet/ASP-NET-CORE6/LTWeb NC/Bai 4/TechnoShop/Views/Shared/_Layout.cshtml",
       "TargetPath": "Views\\Shared\\_Layout.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "/Users/minhluongvan/Projects/Dotnet/ASP-NET-CORE6/LTWeb NC/Bai 4/SportsStore/Pages/_CartLayout.cshtml",
+      "FilePath": "/Users/minhluongvan/Projects/Dotnet/ASP-NET-CORE6/LTWeb NC/Bai 4/TechnoShop/Pages/_CartLayout.cshtml",
       "TargetPath": "Pages\\_CartLayout.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "/Users/minhluongvan/Projects/Dotnet/ASP-NET-CORE6/LTWeb NC/Bai 4/SportsStore/Pages/_ViewStart.cshtml",
+      "FilePath": "/Users/minhluongvan/Projects/Dotnet/ASP-NET-CORE6/LTWeb NC/Bai 4/TechnoShop/Pages/_ViewStart.cshtml",
       "TargetPath": "Pages\\_ViewStart.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "/Users/minhluongvan/Projects/Dotnet/ASP-NET-CORE6/LTWeb NC/Bai 4/SportsStore/Pages/Completed.cshtml",
+      "FilePath": "/Users/minhluongvan/Projects/Dotnet/ASP-NET-CORE6/LTWeb NC/Bai 4/TechnoShop/Pages/Completed.cshtml",
       "TargetPath": "Pages\\Completed.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "/Users/minhluongvan/Projects/Dotnet/ASP-NET-CORE6/LTWeb NC/Bai 4/SportsStore/Views/Home/Index.cshtml",
+      "FilePath": "/Users/minhluongvan/Projects/Dotnet/ASP-NET-CORE6/LTWeb NC/Bai 4/TechnoShop/Views/Home/Index.cshtml",
       "TargetPath": "Views\\Home\\Index.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "/Users/minhluongvan/Projects/Dotnet/ASP-NET-CORE6/LTWeb NC/Bai 4/SportsStore/Views/_ViewStart.cshtml",
+      "FilePath": "/Users/minhluongvan/Projects/Dotnet/ASP-NET-CORE6/LTWeb NC/Bai 4/TechnoShop/Views/_ViewStart.cshtml",
       "TargetPath": "Views\\_ViewStart.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "/Users/minhluongvan/Projects/Dotnet/ASP-NET-CORE6/LTWeb NC/Bai 4/SportsStore/Views/Shared/Components/NavigationMenu/Default.cshtml",
+      "FilePath": "/Users/minhluongvan/Projects/Dotnet/ASP-NET-CORE6/LTWeb NC/Bai 4/TechnoShop/Views/Shared/Components/NavigationMenu/Default.cshtml",
       "TargetPath": "Views\\Shared\\Components\\NavigationMenu\\Default.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "/Users/minhluongvan/Projects/Dotnet/ASP-NET-CORE6/LTWeb NC/Bai 4/SportsStore/Views/Shared/ProductSummary.cshtml",
+      "FilePath": "/Users/minhluongvan/Projects/Dotnet/ASP-NET-CORE6/LTWeb NC/Bai 4/TechnoShop/Views/Shared/ProductSummary.cshtml",
       "TargetPath": "Views\\Shared\\ProductSummary.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "/Users/minhluongvan/Projects/Dotnet/ASP-NET-CORE6/LTWeb NC/Bai 4/SportsStore/Pages/_ViewImports.cshtml",
+      "FilePath": "/Users/minhluongvan/Projects/Dotnet/ASP-NET-CORE6/LTWeb NC/Bai 4/TechnoShop/Pages/_ViewImports.cshtml",
       "TargetPath": "Pages\\_ViewImports.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "/Users/minhluongvan/Projects/Dotnet/ASP-NET-CORE6/LTWeb NC/Bai 4/SportsStore/Pages/Cart.cshtml",
+      "FilePath": "/Users/minhluongvan/Projects/Dotnet/ASP-NET-CORE6/LTWeb NC/Bai 4/TechnoShop/Pages/Cart.cshtml",
       "TargetPath": "Pages\\Cart.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "/Users/minhluongvan/Projects/Dotnet/ASP-NET-CORE6/LTWeb NC/Bai 4/SportsStore/Views/_ViewImports.cshtml",
+      "FilePath": "/Users/minhluongvan/Projects/Dotnet/ASP-NET-CORE6/LTWeb NC/Bai 4/TechnoShop/Views/_ViewImports.cshtml",
       "TargetPath": "Views\\_ViewImports.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "/Users/minhluongvan/Projects/Dotnet/ASP-NET-CORE6/LTWeb NC/Bai 4/SportsStore/Views/Shared/Components/CartSummary/Default.cshtml",
+      "FilePath": "/Users/minhluongvan/Projects/Dotnet/ASP-NET-CORE6/LTWeb NC/Bai 4/TechnoShop/Views/Shared/Components/CartSummary/Default.cshtml",
       "TargetPath": "Views\\Shared\\Components\\CartSummary\\Default.cshtml",
       "FileKind": "mvc"
     }

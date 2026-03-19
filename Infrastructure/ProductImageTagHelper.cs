@@ -1,5 +1,5 @@
 using Microsoft.AspNetCore.Razor.TagHelpers;
-
+using Microsoft.AspNetCore.Mvc.TagHelpers;
 namespace TechnoShop.Infrastructure
 {
   [HtmlTargetElement("img", Attributes = "product-image")]
@@ -19,7 +19,8 @@ namespace TechnoShop.Infrastructure
       }
       
       output.Attributes.RemoveAll("product-image");
-      output.AddClass("img-fluid");
+      var classAttr = output.Attributes["class"]?.Value?.ToString();
+      output.Attributes.SetAttribute("class", string.IsNullOrEmpty(classAttr) ? "img-fluid" : classAttr + " img-fluid");
     }
   }
 }

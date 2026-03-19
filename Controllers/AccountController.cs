@@ -38,7 +38,7 @@ namespace TechnoShop.Controllers
             return Redirect(login?.ReturnUrl ?? "/");
           }
         }
-        ModelState.AddModelError(nameof(Login.Name), "Tên đăng nhập hoặc mật khẩu không chính xác");
+        ModelState.AddModelError(nameof(login.Name), "Tên đăng nhập hoặc mật khẩu không chính xác");
       }
       return View(login);
     }

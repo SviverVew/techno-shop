@@ -1,9 +1,13 @@
-namespace SportsStore.Models {
+using TechnoShop.Models;
+
+namespace TechnoShop.Models {
     public class EFStoreRepository : IStoreRepository {
-        private StoreDbContext context;
-        public EFStoreRepository(StoreDbContext ctx) {
+        private TechnoShopDbContext context;
+
+        public EFStoreRepository(TechnoShopDbContext ctx) {
             context = ctx;
-}
+        }
+
         public IQueryable<Product> Products => context.Products;
     }
 }
