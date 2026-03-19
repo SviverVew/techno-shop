@@ -1,0 +1,64 @@
+@using TechnoShop.Models
+
+<div class="card">
+    <div class="card-header bg-info text-white">
+        <h5 class="mb-0"><i class="fas fa-search"></i> Tìm kiếm sản phẩm</h5>
+    </div>
+    <div class="card-body">
+        <div class="input-group mb-3">
+            <input type="text" 
+                   class="form-control" 
+                   placeholder="Nhập tên sản phẩm..."
+                   @bind="SearchTerm"
+                   @bind:event="oninput"
+                   @onkeyup="OnSearch" />
+            <button class="btn btn-outline-secondary" type="button" @onclick="OnSearchClick">
+                <i class="fas fa-search"></i>
+            </button>
+        </div>
+
+        @if (!string.IsNullOrEmpty(SearchTerm) && SearchResults.Any())
+        {
+            <div class="list-group">
+                @foreach (var product in SearchResults.Take(5))
+                {
+                    <a href="/?search=@product.Name" class="list-group-item list-group-item-action">
+                        <div class="fw-bold">@product.Name</div>
+                        <small class="text-muted">@product.Brand</small>
+                    </a>
+                }
+            </div>
+        }
+        @if (!string.IsNullOrEmpty(SearchTerm) && !SearchResults.Any())
+        {
+            <p class="text-muted text-center">Không tìm thấy sản phẩm nào</p>
+        }
+    </div>
+</div>
+
+@code {
+    [Parameter]
+    public List<Product>? AllProducts { get; set; }
+
+    private string SearchTerm = "";
+    private List<Product> SearchResults = new();
+
+    private void OnSearch(KeyboardEventArgs e)
+    {
+        if (SearchTerm.Length > 0)
+        {
+            SearchResults = AllProducts?
+                .Where(p => p.Name.Contains(SearchTerm, StringComparison.OrdinalIgnoreCase))
+                .ToList() ?? new();
+        }
+        else
+        {
+            SearchResults.Clear();
+        }
+    }
+
+    private void OnSearchClick()
+    {
+        // Navigate to search
+    }
+}

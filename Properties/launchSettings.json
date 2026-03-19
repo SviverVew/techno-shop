@@ -8,7 +8,7 @@
     }
   },
   "profiles": {
-    "SportsStore": {
+    "TechnoShop": {
       "commandName": "Project",
       "dotnetRunMessages": true,
       "launchBrowser": true,

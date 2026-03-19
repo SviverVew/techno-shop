@@ -1,5 +1,5 @@
 using System.Text.Json;
-namespace SportsStore.Infrastructure
+namespace TechnoShop.Infrastructure
 {
   public static class SessionExtensions
   {

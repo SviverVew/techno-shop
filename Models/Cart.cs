@@ -1,4 +1,4 @@
-namespace SportsStore.Models
+namespace TechnoShop.Models
 {
   public class Cart
   {

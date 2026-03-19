@@ -1,6 +1,6 @@
 using System.Text.Json.Serialization;
-using SportsStore.Infrastructure;
-namespace SportsStore.Models
+using TechnoShop.Infrastructure;
+namespace TechnoShop.Models
 {
   public class SessionCart : Cart
   {

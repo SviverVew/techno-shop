@@ -1,4 +1,4 @@
-namespace SportsStore.Models.ViewModels
+namespace TechnoShop.Models.ViewModels
 
 {
 

@@ -1,11 +1,11 @@
 using Microsoft.AspNetCore.Mvc;
-using SportsStore.Models;
-namespace SportsStore.Controllers
+using TechnoShop.Models;
+namespace TechnoShop.Controllers
 {
   public class OrderController : Controller
   {
-    private IOrderRepository repository;
-    private Cart cart;
+    private readonly IOrderRepository repository;
+    private readonly Cart cart;
     public OrderController(IOrderRepository repoService, Cart cartService)
     {
       repository = repoService;
@@ -15,9 +15,9 @@ namespace SportsStore.Controllers
     [HttpPost]
     public IActionResult Checkout(Order order)
     {
-      if (cart.Lines.Count() == 0)
+      if (!cart.Lines.Any())
       {
-        ModelState.AddModelError("", "Sorry, your cart is empty!");
+        ModelState.AddModelError("", "Xin lỗi, giỏ hàng của bạn đang trống!");
       }
       if (ModelState.IsValid)
       {

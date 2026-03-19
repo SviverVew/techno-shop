@@ -8,9 +8,9 @@ using Microsoft.AspNetCore.Mvc.ViewFeatures;
 
 using Microsoft.AspNetCore.Razor.TagHelpers;
 
-using SportsStore.Models.ViewModels;
+using TechnoShop.Models.ViewModels;
 
-namespace SportsStore.Infrastructure
+namespace TechnoShop.Infrastructure
 
 {
 

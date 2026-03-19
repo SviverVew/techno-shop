@@ -1,15 +1,27 @@
 @model ProductsListViewModel
 
-@foreach (var p in Model?.Products ?? Enumerable.Empty<Product>())
-
-{
-
-  <partial name="ProductSummary" model="p" />
-
-}
-
-<div page-model="@Model?.PagingInfo" page-action="Index" page-classes-enabled="true" page-class="btn"
-  page-class-normal="btn-outline-dark" page-class-selected="btn-primary" page-url-category="@Model?.CurrentCategory!"
-  class="btn-group pull-right m-1">
-
+<div class="mb-4">
+    <h1><i class="fas fa-shopping-bags"></i> Sản phẩm công nghệ</h1>
+    @if (!string.IsNullOrEmpty(Model?.CurrentCategory))
+    {
+        <p class="text-muted">Danh mục: <strong>@Model.CurrentCategory</strong></p>
+    }
 </div>
+
+<div class="row g-4 mb-4">
+    @foreach (var p in Model?.Products ?? Enumerable.Empty<Product>())
+    {
+        <div class="col-lg-3 col-md-4 col-sm-6">
+            <partial name="ProductSummary" model="p" />
+        </div>
+    }
+</div>
+
+<nav aria-label="Page navigation" class="d-flex justify-content-center">
+    <ul class="pagination">
+        <div page-model="@Model?.PagingInfo" page-action="Index" page-classes-enabled="true" 
+             page-class="page-link" page-class-normal="text-dark" page-class-selected="active" 
+             page-url-category="@Model?.CurrentCategory!" class="pagination">
+        </div>
+    </ul>
+</nav>

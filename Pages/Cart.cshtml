@@ -1,51 +1,96 @@
 @page
 @model CartModel
-<h2>Your cart</h2>
-<table class="table table-bordered table-striped">
-  <thead>
-    <tr>
-      <th>Quantity</th>
-      <th>Item</th>
-      <th class="text-right">Price</th>
-      <th class="text-right">Subtotal</th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    @foreach (var line in Model?.Cart?.Lines ?? Enumerable.Empty<CartLine>())
-    {
-      <tr>
-        <td class="text-center">@line.Quantity</td>
-        <td class="text-left">@line.Product.Name</td>
-        <td class="text-right">@line.Product.Price.ToString("c")</td>
-        <td class="text-right">
-          @((line.Quantity * line.Product.Price).ToString("c"))
-        </td>
-        <td class="text-center">
-          <form asp-page-handler="Remove" method="post">
-            <input type="hidden" name="ProductID" value="@line.Product.ProductID" />
-            <input type="hidden" name="returnUrl" value="@Model?.ReturnUrl" />
-            <button type="submit" class="btn btn-sm btn-danger">
-              Remove
-            </button>
-          </form>
-        </td>
-      </tr>
-    }
-  </tbody>
 
-  <tfoot>
-    <tr>
-      <td colspan="3" class="text-right">Total:</td>
-      <td class="text-right">
-        @Model?.Cart?.ComputeTotalValue().ToString("c")
-      </td>
-    </tr>
-  </tfoot>
-</table>
-<div class="text-center">
-  <a class="btn btn-primary" href="@Model?.ReturnUrl">Continue shopping</a>
-  <a class="btn btn-primary" asp-action="Checkout" asp-controller="Order">
-    Checkout
-  </a>
+<div class="row">
+  <div class="col-md-8">
+    <h2><i class="fas fa-shopping-cart"></i> Giỏ hàng của bạn</h2>
+    
+    @if (Model?.Cart?.Lines.Count() == 0)
+    {
+      <div class="alert alert-info" role="alert">
+        <strong><i class="fas fa-info-circle"></i> Giỏ hàng trống!</strong>
+        <p class="mb-0">Vui lòng tiếp tục mua sắm để thêm sản phẩm vào giỏ hàng.</p>
+      </div>
+    }
+    else
+    {
+      <div class="table-responsive">
+        <table class="table table-hover">
+          <thead class="table-light">
+            <tr>
+              <th>Sản phẩm</th>
+              <th class="text-center">Số lượng</th>
+              <th class="text-right">Giá</th>
+              <th class="text-right">Thành tiền</th>
+              <th class="text-center">Thao tác</th>
+            </tr>
+          </thead>
+          <tbody>
+            @foreach (var line in Model?.Cart?.Lines ?? Enumerable.Empty<CartLine>())
+            {
+              <tr>
+                <td class="align-middle">
+                  <strong>@line.Product.Name</strong>
+                  <br />
+                  <small class="text-muted">@line.Product.Brand</small>
+                </td>
+                <td class="text-center align-middle">@line.Quantity</td>
+                <td class="text-right align-middle">
+                  <span price="@line.Product.Price"></span>
+                </td>
+                <td class="text-right align-middle">
+                  <span price="@(line.Quantity * line.Product.Price)"></span>
+                </td>
+                <td class="text-center align-middle">
+                  <form asp-page-handler="Remove" method="post" style="display: inline;">
+                    <input type="hidden" name="ProductID" value="@line.Product.ProductID" />
+                    <input type="hidden" name="returnUrl" value="@Model?.ReturnUrl" />
+                    <button type="submit" class="btn btn-sm btn-danger">
+                      <i class="fas fa-trash"></i> Xóa
+                    </button>
+                  </form>
+                </td>
+              </tr>
+            }
+          </tbody>
+        </table>
+      </div>
+    }
+  </div>
+
+  <div class="col-md-4">
+    <div class="card">
+      <div class="card-header bg-primary text-white">
+        <h5 class="mb-0"><i class="fas fa-calculator"></i> Tổng đơn</h5>
+      </div>
+      <div class="card-body">
+        @if (Model?.Cart?.Lines.Count() > 0)
+        {
+          <div class="d-flex justify-content-between mb-2">
+            <span>Tổng sản phẩm:</span>
+            <span>@Model.Cart.Lines.Sum(x => x.Quantity)</span>
+          </div>
+          <div class="d-flex justify-content-between mb-3 border-bottom pb-3">
+            <strong>Thành tiền:</strong>
+            <strong><span price="@Model.Cart.ComputeTotalValue()"></span></strong>
+          </div>
+          <div class="d-grid gap-2">
+            <a class="btn btn-outline-primary" href="@Model?.ReturnUrl">
+              <i class="fas fa-arrow-left"></i> Tiếp tục mua sắm
+            </a>
+            <a class="btn btn-primary" asp-action="Checkout" asp-controller="Order">
+              <i class="fas fa-credit-card"></i> Thanh toán
+            </a>
+          </div>
+        }
+        else
+        {
+          <p class="text-muted text-center">Giỏ hàng trống</p>
+          <a class="btn btn-primary w-100" href="/">
+            <i class="fas fa-shopping-bags"></i> Tiếp tục mua sắm
+          </a>
+        }
+      </div>
+    </div>
+  </div>
 </div>

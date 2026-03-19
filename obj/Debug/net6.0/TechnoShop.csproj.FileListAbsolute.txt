@@ -1,0 +1,9 @@
+D:\Code\webnangcaothuchanh\obj\Debug\net6.0\TechnoShop.csproj.AssemblyReference.cache
+D:\Code\webnangcaothuchanh\obj\Debug\net6.0\TechnoShop.GeneratedMSBuildEditorConfig.editorconfig
+D:\Code\webnangcaothuchanh\obj\Debug\net6.0\TechnoShop.AssemblyInfoInputs.cache
+D:\Code\webnangcaothuchanh\obj\Debug\net6.0\TechnoShop.AssemblyInfo.cs
+D:\Code\webnangcaothuchanh\obj\Debug\net6.0\TechnoShop.csproj.CoreCompileInputs.cache
+D:\Code\webnangcaothuchanh\obj\Debug\net6.0\TechnoShop.MvcApplicationPartsAssemblyInfo.cs
+D:\Code\webnangcaothuchanh\obj\Debug\net6.0\TechnoShop.MvcApplicationPartsAssemblyInfo.cache
+D:\Code\webnangcaothuchanh\obj\Debug\net6.0\TechnoShop.RazorAssemblyInfo.cache
+D:\Code\webnangcaothuchanh\obj\Debug\net6.0\TechnoShop.RazorAssemblyInfo.cs

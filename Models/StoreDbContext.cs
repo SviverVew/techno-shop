@@ -1,9 +1,10 @@
 using Microsoft.EntityFrameworkCore;
-namespace SportsStore.Models
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+namespace TechnoShop.Models
 {
-  public class StoreDbContext : DbContext
+  public class TechnoShopDbContext : IdentityDbContext
   {
-    public StoreDbContext(DbContextOptions<StoreDbContext> options)
+    public TechnoShopDbContext(DbContextOptions<TechnoShopDbContext> options)
         : base(options) { }
     public DbSet<Product> Products => Set<Product>();
     public DbSet<Order> Orders => Set<Order>();

@@ -1,16 +1,19 @@
 using Microsoft.EntityFrameworkCore;
-namespace SportsStore.Models
+namespace TechnoShop.Models
 {
   public class EFOrderRepository : IOrderRepository
   {
-    private StoreDbContext context;
-    public EFOrderRepository(StoreDbContext ctx)
+    private readonly TechnoShopDbContext context;
+    
+    public EFOrderRepository(TechnoShopDbContext ctx)
     {
       context = ctx;
     }
+    
     public IQueryable<Order> Orders => context.Orders
                         .Include(o => o.Lines)
                         .ThenInclude(l => l.Product);
+    
     public void SaveOrder(Order order)
     {
       context.AttachRange(order.Lines.Select(l => l.Product));
@@ -19,6 +22,23 @@ namespace SportsStore.Models
         context.Orders.Add(order);
       }
       context.SaveChanges();
+    }
+    
+    public void DeleteOrder(int orderID)
+    {
+      var order = context.Orders.Find(orderID);
+      if (order != null)
+      {
+        context.Orders.Remove(order);
+        context.SaveChanges();
+      }
+    }
+    
+    public Order? GetOrder(int orderID)
+    {
+      return context.Orders.Include(o => o.Lines)
+        .ThenInclude(l => l.Product)
+        .FirstOrDefault(o => o.OrderID == orderID);
     }
   }
 }

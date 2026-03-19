@@ -1,10 +1,10 @@
 using Microsoft.AspNetCore.Mvc;
-using SportsStore.Models;
-namespace SportsStore.Components
+using TechnoShop.Models;
+namespace TechnoShop.Components
 {
   public class CartSummaryViewComponent : ViewComponent
   {
-    private Cart cart;
+    private readonly Cart cart;
     public CartSummaryViewComponent(Cart cartService)
     {
       cart = cartService;

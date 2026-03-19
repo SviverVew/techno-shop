@@ -1,10 +1,43 @@
 @page
-<div class="text-center">
-  <h2>Thanks!</h2>
-  <p>Thanks for placing order #@OrderId</p>
-  <p>We'll ship your goods as soon as possible.</p>
-  <a class="btn btn-primary" asp-controller="Home">Return to Store</a>
+
+<div class="text-center py-5">
+  <div class="mb-4">
+    <i class="fas fa-check-circle" style="font-size: 60px; color: #28a745;"></i>
+  </div>
+  
+  <h2><strong>Cảm ơn bạn!</strong></h2>
+  
+  <p class="lead text-muted mb-4">
+    Đơn hàng <strong>#@OrderId</strong> của bạn đã được xác nhận thành công!
+  </p>
+
+  <div class="alert alert-info" role="alert">
+    <strong><i class="fas fa-info-circle"></i> Thông báo:</strong>
+    <p class="mb-0">Chúng tôi sẽ sớm giao hàng đến bạn. Vui lòng kiểm tra email để nhận thông báo cập nhật.</p>
+  </div>
+
+  <div class="card mt-4 mb-4" style="max-width: 500px; margin-left: auto; margin-right: auto;">
+    <div class="card-body">
+      <h5 class="card-title">Tiếp theo</h5>
+      <p class="card-text text-muted mb-3">Bạn sẽ nhận được xác nhận đơn hàng qua email trong vài phút.</p>
+      <ul class="list-unstyled">
+        <li class="mb-2"><i class="fas fa-check"></i> Email xác nhận</li>
+        <li class="mb-2"><i class="fas fa-truck"></i> Thông báo vận chuyển</li>
+        <li><i class="fas fa-box"></i> Thông báo giao hàng</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="d-grid gap-2" style="max-width: 400px; margin-left: auto; margin-right: auto;">
+    <a class="btn btn-primary btn-lg" asp-controller="Home" asp-action="Index">
+      <i class="fas fa-arrow-left"></i> Quay lại cửa hàng
+    </a>
+    <a class="btn btn-outline-secondary" href="/">
+      <i class="fas fa-home"></i> Trang chủ
+    </a>
+  </div>
 </div>
+
 @functions {
   [BindProperty(SupportsGet = true)]
   public string? OrderId { get; set; }

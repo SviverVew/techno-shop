@@ -1,11 +1,11 @@
 using Microsoft.AspNetCore.Mvc;
-using SportsStore.Models;
-namespace SportsStore.Components
+using TechnoShop.Models;
+namespace TechnoShop.Components
 {
   public class NavigationMenuViewComponent : ViewComponent
   {
-    private IStoreRepository repository;
-    public NavigationMenuViewComponent(IStoreRepository repo)
+    private readonly IProductRepository repository;
+    public NavigationMenuViewComponent(IProductRepository repo)
     {
       repository = repo;
     }

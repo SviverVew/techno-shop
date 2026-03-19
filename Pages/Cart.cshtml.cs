@@ -1,13 +1,13 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using SportsStore.Infrastructure;
-using SportsStore.Models;
-namespace SportsStore.Pages
+using TechnoShop.Infrastructure;
+using TechnoShop.Models;
+namespace TechnoShop.Pages
 {
   public class CartModel : PageModel
   {
-    private IStoreRepository repository;
-    public CartModel(IStoreRepository repo, Cart cartService)
+    private IProductRepository repository;
+    public CartModel(IProductRepository repo, Cart cartService)
     {
       repository = repo;
       Cart = cartService;
