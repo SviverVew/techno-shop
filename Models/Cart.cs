@@ -2,6 +2,7 @@ namespace TechnoShop.Models
 {
   public class Cart
   {
+    public Cart() { }
     public List<CartLine> Lines { get; set; } = new List<CartLine>();
 
     public virtual void AddItem(Product product, int quantity)
@@ -30,8 +31,13 @@ namespace TechnoShop.Models
   }
   public class CartLine
   {
+    public CartLine() { } 
+
     public int CartLineID { get; set; }
-    public Product Product { get; set; } = new();
+    
+  
+    public Product? Product { get; set; } 
+    
     public int Quantity { get; set; }
   }
 }

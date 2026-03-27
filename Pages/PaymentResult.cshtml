@@ -1,0 +1,17 @@
+@page
+@model TechnoShop.Pages.PaymentResultModel
+@{
+    ViewData["Title"] = "Kết quả thanh toán";
+}
+
+<div class="container mt-5 text-center">
+    <div class="card p-5 shadow">
+        @if (Model.IsSuccess) {
+            <h2 class="text-success"><i class="fas fa-check-circle"></i> Thành công!</h2>
+        } else {
+            <h2 class="text-danger"><i class="fas fa-times-circle"></i> Thất bại!</h2>
+        }
+        <p class="lead mt-3">@Model.Message</p>
+        <a href="/" class="btn btn-primary mt-3">Quay lại trang chủ</a>
+    </div>
+</div>

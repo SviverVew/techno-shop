@@ -168,28 +168,39 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="/"><i class="fas fa-home"></i> Trang chủ</a>
-                    </li>
-                    @if (User.Identity?.IsAuthenticated ?? false)
-                    {
-                        <li class="nav-item">
-                            <a class="nav-link" href="/Account/Logout"><i class="fas fa-sign-out-alt"></i> Đăng xuất</a>
-                        </li>
-                    }
-                    else
-                    {
-                        <li class="nav-item">
-                            <a class="nav-link" href="/Account/Login"><i class="fas fa-sign-in-alt"></i> Đăng nhập</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/Account/Register"><i class="fas fa-user-plus"></i> Đăng ký</a>
-                        </li>
-                    }
-                    <li class="nav-item">
-                        <vc:cart-summary />
-                    </li>
-                </ul>
+    <li class="nav-item">
+        <a class="nav-link" href="/"><i class="fas fa-home"></i> Trang chủ</a>
+    </li>
+
+    @if (User.Identity?.IsAuthenticated ?? false)
+    {
+        @* PHẦN MỚI: Check quyền Admin *@
+        @if (User.IsInRole("Admin"))
+        {
+            <li class="nav-item">
+                <a class="nav-link text-warning fw-bold" asp-controller="Admin" asp-action="Index">
+                    <i class="fas fa-user-shield"></i> Quản trị
+                </a>
+            </li>
+        }
+
+        <li class="nav-item">
+            <a class="nav-link" href="/Account/Logout"><i class="fas fa-sign-out-alt"></i> Đăng xuất</a>
+        </li>
+    }
+    else
+    {
+        <li class="nav-item">
+            <a class="nav-link" href="/Account/Login"><i class="fas fa-sign-in-alt"></i> Đăng nhập</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/Account/Register"><i class="fas fa-user-plus"></i> Đăng ký</a>
+        </li>
+    }
+    <li class="nav-item">
+        <vc:cart-summary />
+    </li>
+</ul>
             </div>
         </div>
     </header>

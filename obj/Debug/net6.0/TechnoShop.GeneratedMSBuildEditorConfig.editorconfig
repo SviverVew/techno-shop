@@ -8,89 +8,105 @@ build_property.PlatformNeutralAssembly =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = TechnoShop
 build_property.RootNamespace = TechnoShop
-build_property.ProjectDir = E:\Code\C#\techno-shop\
+build_property.ProjectDir = D:\webnc\TechnoShop\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = E:\Code\C#\techno-shop
+build_property.MSBuildProjectDirectory = D:\webnc\TechnoShop
 build_property._RazorSourceGeneratorDebug = 
 
-[E:/Code/C\#/techno-shop/Components/ProductSearch.razor]
+[D:/webnc/TechnoShop/Components/ProductSearch.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQcm9kdWN0U2VhcmNoLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Code/C\#/techno-shop/Pages/Cart.cshtml]
+[D:/webnc/TechnoShop/Pages/Cart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2FydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Code/C\#/techno-shop/Pages/Completed.cshtml]
+[D:/webnc/TechnoShop/Pages/Checkout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2hlY2tvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/webnc/TechnoShop/Pages/Completed.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ29tcGxldGVkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Code/C\#/techno-shop/Pages/ViewImports.cshtml]
+[D:/webnc/TechnoShop/Pages/PaymentResult.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGF5bWVudFJlc3VsdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/webnc/TechnoShop/Pages/ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVmlld0ltcG9ydHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Code/C\#/techno-shop/Pages/_CartLayout.cshtml]
+[D:/webnc/TechnoShop/Pages/_CartLayout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX0NhcnRMYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Code/C\#/techno-shop/Pages/_ViewImports.cshtml]
+[D:/webnc/TechnoShop/Pages/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Code/C\#/techno-shop/Pages/_ViewStart.cshtml]
+[D:/webnc/TechnoShop/Pages/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Code/C\#/techno-shop/Views/Account/Login.cshtml]
+[D:/webnc/TechnoShop/Views/Account/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Code/C\#/techno-shop/Views/Account/Register.cshtml]
+[D:/webnc/TechnoShop/Views/Account/Register.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Code/C\#/techno-shop/Views/Components/CartSummary/Default.cshtml]
+[D:/webnc/TechnoShop/Views/Admin/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/webnc/TechnoShop/Views/Admin/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/webnc/TechnoShop/Views/Admin/Orders.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cT3JkZXJzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/webnc/TechnoShop/Views/Components/CartSummary/Default.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tcG9uZW50c1xDYXJ0U3VtbWFyeVxEZWZhdWx0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Code/C\#/techno-shop/Views/Components/Footer/Default.cshtml]
+[D:/webnc/TechnoShop/Views/Components/Footer/Default.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tcG9uZW50c1xGb290ZXJcRGVmYXVsdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Code/C\#/techno-shop/Views/Home/Index.cshtml]
+[D:/webnc/TechnoShop/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Code/C\#/techno-shop/Views/Order/Checkout.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJcQ2hlY2tvdXQuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[E:/Code/C\#/techno-shop/Views/Shared/Components/CartSummary/Default.cshtml]
+[D:/webnc/TechnoShop/Views/Shared/Components/CartSummary/Default.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcQ2FydFN1bW1hcnlcRGVmYXVsdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Code/C\#/techno-shop/Views/Shared/Components/Footer/Default.cshtml]
+[D:/webnc/TechnoShop/Views/Shared/Components/Footer/Default.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcRm9vdGVyXERlZmF1bHQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Code/C\#/techno-shop/Views/Shared/Components/NavigationMenu/Default.cshtml]
+[D:/webnc/TechnoShop/Views/Shared/Components/NavigationMenu/Default.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcTmF2aWdhdGlvbk1lbnVcRGVmYXVsdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Code/C\#/techno-shop/Views/Shared/ProductSummary.cshtml]
+[D:/webnc/TechnoShop/Views/Shared/ProductSummary.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXFByb2R1Y3RTdW1tYXJ5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Code/C\#/techno-shop/Views/Shared/_Layout.cshtml]
+[D:/webnc/TechnoShop/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Code/C\#/techno-shop/Views/_ViewImports.cshtml]
+[D:/webnc/TechnoShop/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Code/C\#/techno-shop/Views/_ViewStart.cshtml]
+[D:/webnc/TechnoShop/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 

@@ -4,6 +4,8 @@ namespace TechnoShop.Models
 {
   public class SessionCart : Cart
   {
+    [JsonConstructor]
+    public SessionCart() { }
     public static Cart GetCart(IServiceProvider services)
     {
       ISession? session = services.GetRequiredService<IHttpContextAccessor>()
