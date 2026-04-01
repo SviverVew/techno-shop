@@ -1,17 +1,46 @@
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity; // Thêm cái này
+
 namespace TechnoShop.Models
 {
-  public static class SeedData
-  {
-    public static void EnsurePopulated(IApplicationBuilder app)
+    public static class SeedData
     {
-      TechnoShopDbContext context = app.ApplicationServices
-          .CreateScope().ServiceProvider.GetRequiredService<TechnoShopDbContext>();
-      if (context.Database.GetPendingMigrations().Any())
-      {
-        context.Database.Migrate();
-      }
-      if (!context.Products.Any())
+        // Chuyển thành async Task để xử lý Identity dễ hơn
+        public static async Task EnsurePopulated(IApplicationBuilder app)
+        {
+            using (var scope = app.ApplicationServices.CreateScope())
+            {
+                var context = scope.ServiceProvider.GetRequiredService<TechnoShopDbContext>();
+                var userManager = scope.ServiceProvider.GetRequiredService<UserManager<IdentityUser>>();
+                var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+
+                if (context.Database.GetPendingMigrations().Any())
+                {
+                    context.Database.Migrate();
+                }
+
+                // --- PHẦN MỚI: TẠO ROLE VÀ ADMIN ---
+                string adminRole = "Admin";
+                string adminEmail = "admin@technoshop.com";
+                string adminPass = "Admin@123"; // Password mẫu
+
+                // 1. Tạo Role Admin nếu chưa có
+                if (!await roleManager.RoleExistsAsync(adminRole))
+                {
+                    await roleManager.CreateAsync(new IdentityRole(adminRole));
+                }
+
+                // 2. Tạo User Admin nếu chưa có
+                var adminUser = await userManager.FindByEmailAsync(adminEmail);
+                if (adminUser == null)
+                {
+                    adminUser = new IdentityUser { UserName = "Admin", Email = adminEmail, EmailConfirmed = true };
+                    await userManager.CreateAsync(adminUser, adminPass);
+                    await userManager.AddToRoleAsync(adminUser, adminRole);
+                }
+
+                // --- PHẦN CŨ: TẠO SẢN PHẨM ---
+                if (!context.Products.Any())
       {
         context.Products.AddRange(
             // Laptops
@@ -176,7 +205,8 @@ namespace TechnoShop.Models
             }
         );
         context.SaveChanges();
-      }
+                }
+            }
+        }
     }
-  }
 }

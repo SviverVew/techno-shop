@@ -1,11 +1,12 @@
+using System.Linq;
+
 namespace TechnoShop.Models
 {
     public interface IProductRepository
     {
         IQueryable<Product> Products { get; }
-        void CreateProduct(Product product);
-        void UpdateProduct(Product product);
-        void DeleteProduct(long productID);
+        void SaveProduct(Product product); // Kiểm tra kỹ chữ "Product"
+        void DeleteProduct(long productID); // Dùng long cho đồng bộ
         Product? GetProduct(long productID);
     }
 }

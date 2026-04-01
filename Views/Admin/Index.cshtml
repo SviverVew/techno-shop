@@ -1,0 +1,69 @@
+@model IEnumerable<Product>
+@{ Layout = "_Layout"; }
+
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2 class="fw-bold"><i class="fas fa-boxes me-2"></i>Quản lý kho hàng</h2>
+        <a asp-action="Create" class="btn btn-primary shadow-sm">
+            <i class="fas fa-plus me-1"></i> Thêm sản phẩm mới
+        </a>
+    </div>
+
+    @if (TempData["message"] != null)
+    {
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <i class="fas fa-check-circle me-2"></i>@TempData["message"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+
+    <div class="card shadow-sm">
+        <div class="table-responsive">
+            <table class="table table-hover align-middle mb-0">
+                <thead class="table-light">
+                    <tr>
+                        <th class="ps-3">ID</th>
+                        <th>Sản phẩm</th>
+                        <th>Danh mục</th>
+                        <th class="text-end">Giá bán</th>
+                        <th class="text-center">Tồn kho</th>
+                        <th class="text-center">Thao tác</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var p in Model)
+                    {
+                        <tr>
+                            <td class="ps-3 text-muted">#@p.ProductID</td>
+                            <td>
+                                <div class="d-flex align-items-center">
+                                    <img src="@p.ImageUrl" class="rounded me-3" style="width: 40px; height: 40px; object-fit: cover;">
+                                    <div>
+                                        <div class="fw-bold text-dark">@p.Name</div>
+                                        <small class="text-muted">@p.Brand</small>
+                                    </div>
+                                </div>
+                            </td>
+                            <td><span class="badge bg-info text-dark">@p.Category</span></td>
+                            <td class="text-end fw-bold">@p.Price.ToString("N0") đ</td>
+                            <td class="text-center">@p.StockQuantity</td>
+                            <td class="text-center">
+                                <form asp-action="Delete" method="post" class="d-inline">
+                                    <a asp-action="Edit" asp-route-productId="@p.ProductID" 
+                                       class="btn btn-sm btn-outline-warning me-1">
+                                        <i class="fas fa-edit"></i>
+                                    </a>
+                                    <input type="hidden" name="productId" value="@p.ProductID" />
+                                    <button type="submit" class="btn btn-sm btn-outline-danger" 
+                                            onclick="return confirm('Ông có chắc muốn xóa món này không?')">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </form>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
