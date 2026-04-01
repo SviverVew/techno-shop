@@ -1,14 +1,13 @@
 @model IEnumerable<string>
-<div class="d-grid gap-2">
-  <a class="btn btn-outline-secondary" asp-action="Index" asp-controller="Home" asp-route-category="">
-    Home
-  </a>
-  @foreach (string category in Model ?? Enumerable.Empty<string>())
-  {
-    <a class="btn @(category == ViewBag.SelectedCategory
-                ? "btn-primary": "btn-outline-secondary")" asp-action="Index" asp-controller="Home"
-    asp-route-category="@category" asp-route-productPage="1">
-      @category
+<div class="category-list">
+    <a class="category-item @(String.IsNullOrEmpty(ViewBag.SelectedCategory) ? "active" : "")" asp-action="Index" asp-controller="Home" asp-route-category="">
+        <i class="fas fa-home me-2"></i> Tất cả
     </a>
-  }
+    @foreach (string category in Model ?? Enumerable.Empty<string>())
+    {
+        var isActive = category == ViewBag.SelectedCategory ? "active" : "";
+        <a class="category-item @isActive" asp-action="Index" asp-controller="Home" asp-route-category="@category" asp-route-productPage="1">
+            <i class="fas fa-tag me-1"></i> @category
+        </a>
+    }
 </div>

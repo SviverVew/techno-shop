@@ -1,0 +1,135 @@
+@page
+@model TechnoShop.Pages.CheckoutModel
+
+<h2><i class="fas fa-credit-card"></i> Thanh toán đơn hàng</h2>
+<p class="text-muted">Vui lòng nhập thông tin của bạn, chúng tôi sẽ giao hàng ngay!</p>
+
+<div class="row">
+  <div class="col-md-8">
+    <div class="card">
+      <div class="card-header bg-primary text-white">
+        <h5 class="mb-0">Thông tin thanh toán</h5>
+      </div>
+      <div class="card-body">
+        <div asp-validation-summary="All" class="alert alert-danger" role="alert"></div>
+
+        <form method="post">
+          <h5 class="mb-3"><i class="fas fa-user"></i> Thông tin cá nhân</h5>
+          <div class="row mb-3">
+            <div class="col-md-6">
+              <label class="form-label">Họ tên <span class="text-danger">*</span></label>
+              <input asp-for="Order.Name" id="OrderName" class="form-control" placeholder="Nhập họ tên" />
+              <span asp-validation-for="Order.Name" class="text-danger small"></span>
+            </div>
+            <div class="col-md-6">
+              <label class="form-label">Email <span class="text-danger">*</span></label>
+              <input asp-for="Order.Email" class="form-control" type="email" placeholder="Nhập email" />
+              <span asp-validation-for="Order.Email" class="text-danger small"></span>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Số điện thoại <span class="text-danger">*</span></label>
+            <input asp-for="Order.Phone" class="form-control" type="tel" placeholder="Nhập số điện thoại" />
+            <span asp-validation-for="Order.Phone" class="text-danger small"></span>
+          </div>
+
+          <h5 class="mb-3"><i class="fas fa-map-marker-alt"></i> Địa chỉ giao hàng</h5>
+          <div class="mb-3">
+            <label class="form-label">Địa chỉ <span class="text-danger">*</span></label>
+            <input asp-for="Order.Line1" class="form-control" placeholder="Địa chỉ chính" />
+            <span asp-validation-for="Order.Line1" class="text-danger small"></span>
+          </div>
+
+          <div class="row mb-3">
+            <div class="col-md-6">
+              <label class="form-label">Địa chỉ tiếp</label>
+              <input asp-for="Order.Line2" class="form-control" placeholder="Địa chỉ tiếp (tuỳ chọn)" />
+            </div>
+            <div class="col-md-6">
+              <label class="form-label">Địa chỉ thêm</label>
+              <input asp-for="Order.Line3" class="form-control" placeholder="Địa chỉ thêm (tuỳ chọn)" />
+            </div>
+          </div>
+
+          <div class="row mb-3">
+            <div class="col-md-6">
+              <label class="form-label">Thành phố <span class="text-danger">*</span></label>
+              <input asp-for="Order.City" class="form-control" placeholder="Thành phố" />
+              <span asp-validation-for="Order.City" class="text-danger small"></span>
+            </div>
+            <div class="col-md-3">
+              <label class="form-label">Tỉnh <span class="text-danger">*</span></label>
+              <input asp-for="Order.State" class="form-control" placeholder="Tỉnh" />
+              <span asp-validation-for="Order.State" class="text-danger small"></span>
+            </div>
+          </div>
+
+          @* Bỏ 2 trường không cần thiết: Mã bưu điện và Quốc gia *@
+
+          <h5 class="mb-3"><i class="fas fa-cogs"></i> Tùy chọn</h5>
+          <div class="form-check mb-3">
+            <input asp-for="Order.GiftWrap" class="form-check-input" type="checkbox" id="giftWrap" />
+            <label class="form-check-label" for="giftWrap">
+              <i class="fas fa-gift"></i> Bao gói quà tặng
+            </label>
+          </div>
+
+          <div class="d-grid gap-2 mt-4">
+            <button type="submit" class="btn btn-primary btn-lg">
+              <i class="fas fa-check-circle"></i> Hoàn tất đơn hàng
+            </button>
+            <a href="/Cart" class="btn btn-outline-secondary">
+              <i class="fas fa-arrow-left"></i> Quay lại giỏ hàng
+            </a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-4">
+    <div class="card sticky-top">
+      <div class="card-header bg-success text-white">
+        <h5 class="mb-0"><i class="fas fa-box"></i> Tóm tắt đơn</h5>
+      </div>
+      <div class="card-body">
+        @if (Model.HasSavedShipping)
+        {
+            <div class="mb-3">
+                <button type="button" class="btn btn-outline-primary w-100" onclick="document.getElementById('OrderName').scrollIntoView({ behavior: 'smooth' });">
+                    <i class="fas fa-map-marker-alt"></i> Thông tin giao hàng đã lưu (dùng lại)
+                </button>
+            </div>
+        }
+        else
+        {
+            <div class="mb-3 alert alert-info">
+                <i class="fas fa-info-circle"></i> Chưa có thông tin giao hàng lưu, hãy điền form bên trái.
+            </div>
+        }
+        <ul class="list-group list-group-flush mb-3">
+            @foreach (var line in Model.UserCart.Lines)
+            {
+                <li class="list-group-item d-flex justify-content-between align-items-center px-0">
+                    <div>
+                        <strong>@line.Product.Name</strong>
+                        <br />
+                        <small class="text-muted">Số lượng: @line.Quantity</small>
+                    </div>
+                    <span>@((line.Product.Price * line.Quantity).ToString("c"))</span>
+                </li>
+            }
+        </ul>
+        <hr>
+        <div class="d-flex justify-content-between mb-2">
+            <strong>Tổng cộng:</strong>
+            <strong class="text-danger">@Model.UserCart.ComputeTotalValue().ToString("c")</strong>
+        </div>
+        <p class="text-muted small">
+          <i class="fas fa-shipping-fast"></i> Giao hàng miễn phí cho đơn trên 500.000đ
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

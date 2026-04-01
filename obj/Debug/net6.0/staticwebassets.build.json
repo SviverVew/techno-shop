@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "AVXDvcKLbq0utLEqidya1MI/s0MtqwBJJxH7jXNWC4E=",
+  "Hash": "hXbb7dPuPtQIi2t3Ht2hXRJoMYxYmsD2iI/SdLvpwOQ=",
   "Source": "TechnoShop",
   "BasePath": "_content/TechnoShop",
   "Mode": "Default",
@@ -1052,6 +1052,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\app.razorcomponents.js"
+    },
+    {
+      "Identity": "E:\\Code\\C#\\techno-shop\\wwwroot\\images\\5a2e4afd-5943-4492-8d99-e1a2a3403437_hinh-nen-1920-1080-thumbnail.jpg",
+      "SourceId": "TechnoShop",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\Code\\C#\\techno-shop\\wwwroot\\",
+      "BasePath": "_content/TechnoShop",
+      "RelativePath": "images/5a2e4afd-5943-4492-8d99-e1a2a3403437_hinh-nen-1920-1080-thumbnail.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\5a2e4afd-5943-4492-8d99-e1a2a3403437_hinh-nen-1920-1080-thumbnail.jpg"
+    },
+    {
+      "Identity": "E:\\Code\\C#\\techno-shop\\wwwroot\\images\\8a9e8218-b34a-493f-a77b-d022cb232204_ảnh têst.jpg",
+      "SourceId": "TechnoShop",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\Code\\C#\\techno-shop\\wwwroot\\",
+      "BasePath": "_content/TechnoShop",
+      "RelativePath": "images/8a9e8218-b34a-493f-a77b-d022cb232204_ảnh têst.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\8a9e8218-b34a-493f-a77b-d022cb232204_ảnh têst.jpg"
     }
   ]
 }

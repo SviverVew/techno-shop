@@ -24,25 +24,59 @@ namespace TechnoShop.Controllers
 
     }
 
-    public ViewResult Index(string? category, int productPage = 1)
-    => View(new ProductsListViewModel
+    public ViewResult Index(string? category, string? searchQuery, int productPage = 1)
     {
-      Products = repository.Products
-      .Where(p => category == null || p.Category == category)
-      .OrderBy(p => p.ProductID)
-      .Skip((productPage - 1) * PageSize)
-      .Take(PageSize),
-      PagingInfo = new PagingInfo
+      var products = repository.Products.AsQueryable();
+
+      if (!string.IsNullOrEmpty(category))
       {
-        CurrentPage = productPage,
-        ItemsPerPage = PageSize,
-        TotalItems = category == null
-          ? repository.Products.Count()
-          : repository.Products.Where(e =>
-              e.Category == category).Count()
-      },
-      CurrentCategory = category
-    });
+        products = products.Where(p => p.Category == category);
+      }
+
+      if (!string.IsNullOrEmpty(searchQuery))
+      {
+        var normalized = searchQuery.Trim().ToLower();
+        products = products.Where(p =>
+          p.Name.ToLower().Contains(normalized)
+          || (p.Description != null && p.Description.ToLower().Contains(normalized))
+          || (p.Brand != null && p.Brand.ToLower().Contains(normalized))
+          || (p.Category != null && p.Category.ToLower().Contains(normalized))
+        );
+      }
+
+      var totalItems = products.Count();
+
+      var itemsOnPage = products
+        .OrderBy(p => p.ProductID)
+        .Skip((productPage - 1) * PageSize)
+        .Take(PageSize);
+
+      ViewData["SearchQuery"] = searchQuery;
+      ViewData["CurrentCategory"] = category;
+
+      return View(new ProductsListViewModel
+      {
+        Products = itemsOnPage,
+        PagingInfo = new PagingInfo
+        {
+          CurrentPage = productPage,
+          ItemsPerPage = PageSize,
+          TotalItems = totalItems
+        },
+        CurrentCategory = category,
+        SearchQuery = searchQuery
+      });
+    }
+
+    public ViewResult Details(long productId)
+    {
+      var product = repository.Products.FirstOrDefault(p => p.ProductID == productId);
+      if (product == null)
+      {
+        return View("NotFound");
+      }
+      return View(product);
+    }
 
   }
 

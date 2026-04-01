@@ -83,15 +83,12 @@ namespace TechnoShop.Infrastructure
 
           TagBuilder tag = new TagBuilder("a");
 
-          PageUrlValues["productPage"] = i;
+          var routeValues = new Dictionary<string, object>(PageUrlValues);
+          routeValues["productPage"] = i;
 
           tag.Attributes["href"] = urlHelper.Action(PageAction,
 
-          PageUrlValues);
-
-          tag.Attributes["href"] = urlHelper.Action(PageAction,
-
-          new { productPage = i });
+          routeValues);
 
 
 

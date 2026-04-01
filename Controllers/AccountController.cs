@@ -29,7 +29,11 @@ namespace TechnoShop.Controllers
     {
       if (ModelState.IsValid)
       {
-        IdentityUser user = await userManager.FindByNameAsync(login.Name ?? "");
+        IdentityUser? user = await userManager.FindByNameAsync(login.Name ?? "");
+        if (user == null)
+        {
+          user = await userManager.FindByEmailAsync(login.Name ?? "");
+        }
         if (user != null)
         {
           await signInManager.SignOutAsync();
@@ -53,7 +57,12 @@ namespace TechnoShop.Controllers
     {
       if (ModelState.IsValid)
       {
-        IdentityUser identityUser = new IdentityUser(user.Name);
+        IdentityUser identityUser = new IdentityUser
+        {
+          UserName = user.Name,
+          Email = user.Email,
+          EmailConfirmed = true
+        };
         IdentityResult result = await userManager.CreateAsync(identityUser, user.Password ?? "");
         if (result.Succeeded)
         {

@@ -14,6 +14,8 @@ namespace TechnoShop.Models.ViewModels
 
     public string? CurrentCategory { get; set; }
 
+    public string? SearchQuery { get; set; }
+
   }
 
 }

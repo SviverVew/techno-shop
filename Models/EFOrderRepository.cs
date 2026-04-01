@@ -10,9 +10,7 @@ namespace TechnoShop.Models
       context = ctx;
     }
     
-    public IQueryable<Order> Orders => context.Orders
-                        .Include(o => o.Lines)
-                        .ThenInclude(l => l.Product);
+    public IQueryable<Order> Orders => context.Orders;
     
     public void SaveOrder(Order order)
     {
@@ -36,9 +34,7 @@ namespace TechnoShop.Models
     
     public Order? GetOrder(int orderID)
     {
-      return context.Orders.Include(o => o.Lines)
-        .ThenInclude(l => l.Product)
-        .FirstOrDefault(o => o.OrderID == orderID);
+      return context.Orders.FirstOrDefault(o => o.OrderID == orderID);
     }
   }
 }

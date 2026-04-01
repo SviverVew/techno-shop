@@ -6,6 +6,10 @@
     {
         <p class="text-muted">Danh mục: <strong>@Model.CurrentCategory</strong></p>
     }
+    @if (!string.IsNullOrEmpty(Model?.SearchQuery))
+    {
+        <p class="text-muted">Tìm kiếm: <strong>@Model.SearchQuery</strong></p>
+    }
 </div>
 
 <div class="row g-4 mb-4">
@@ -19,9 +23,10 @@
 
 <nav aria-label="Page navigation" class="d-flex justify-content-center">
     <ul class="pagination">
-        <div page-model="@Model?.PagingInfo" page-action="Index" page-classes-enabled="true" 
-             page-class="page-link" page-class-normal="text-dark" page-class-selected="active" 
-             page-url-category="@Model?.CurrentCategory!" class="pagination">
+        <div page-model="@Model?.PagingInfo" page-action="Index" page-classes-enabled="true"
+             page-class="page-link" page-class-normal="text-dark" page-class-selected="active"
+             page-url-category="@Model?.CurrentCategory!"
+             page-url-search="@Model?.SearchQuery!" class="pagination">
         </div>
     </ul>
 </nav>

@@ -1,17 +1,67 @@
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity; // Thêm cái này
+
 namespace TechnoShop.Models
 {
-  public static class SeedData
-  {
-    public static void EnsurePopulated(IApplicationBuilder app)
+    public static class SeedData
     {
-      TechnoShopDbContext context = app.ApplicationServices
-          .CreateScope().ServiceProvider.GetRequiredService<TechnoShopDbContext>();
-      if (context.Database.GetPendingMigrations().Any())
-      {
-        context.Database.Migrate();
-      }
-      if (!context.Products.Any())
+        // Chuyển thành async Task để xử lý Identity dễ hơn
+        public static async Task EnsurePopulated(IApplicationBuilder app)
+        {
+            using (var scope = app.ApplicationServices.CreateScope())
+            {
+                var context = scope.ServiceProvider.GetRequiredService<TechnoShopDbContext>();
+                var userManager = scope.ServiceProvider.GetRequiredService<UserManager<IdentityUser>>();
+                var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+
+                if (context.Database.GetPendingMigrations().Any())
+                {
+                    context.Database.Migrate();
+                }
+
+                // --- PHẦN MỚI: TẠO ROLE VÀ ADMIN ---
+                string adminRole = "Admin";
+                string adminEmail = "admin@technoshop.com";
+                string adminPass = "Admin@123"; // Password mẫu
+
+                // 1. Tạo Role Admin nếu chưa có
+                if (!await roleManager.RoleExistsAsync(adminRole))
+                {
+                    await roleManager.CreateAsync(new IdentityRole(adminRole));
+                }
+
+                // 2. Tạo User Admin nếu chưa có
+                var adminUser = await userManager.FindByEmailAsync(adminEmail);
+                if (adminUser == null)
+                {
+                    adminUser = new IdentityUser { UserName = "Admin", Email = adminEmail, EmailConfirmed = true };
+                    await userManager.CreateAsync(adminUser, adminPass);
+                    await userManager.AddToRoleAsync(adminUser, adminRole);
+                }
+
+                // 2b. Tạo thêm admin 'kha' nếu chưa có
+                string khaUserName = "kha";
+                string khaEmail = "kha@gmail.com.com";
+                string khaPass = "Khalak123@";
+                var khaUser = await userManager.FindByNameAsync(khaUserName);
+                if (khaUser == null)
+                {
+                    khaUser = new IdentityUser { UserName = khaUserName, Email = khaEmail, EmailConfirmed = true };
+                    await userManager.CreateAsync(khaUser, khaPass);
+                    await userManager.AddToRoleAsync(khaUser, adminRole);
+                }
+
+                // 3. Fix dữ liệu cũ: nếu có user null email thì gán = username
+                var usersWithoutEmail = userManager.Users.Where(u => string.IsNullOrEmpty(u.Email));
+                foreach (var u in usersWithoutEmail)
+                {
+                    u.Email = u.UserName;
+                    u.NormalizedEmail = u.UserName?.ToUpper();
+                    await userManager.UpdateAsync(u);
+                }
+
+                // --- PHẦN CŨ: TẠO SẢN PHẨM ---
+                if (!context.Products.Any())
       {
         context.Products.AddRange(
             // Laptops
@@ -176,7 +226,8 @@ namespace TechnoShop.Models
             }
         );
         context.SaveChanges();
-      }
+                }
+            }
+        }
     }
-  }
 }

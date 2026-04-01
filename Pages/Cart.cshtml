@@ -78,9 +78,12 @@
             <a class="btn btn-outline-primary" href="@Model?.ReturnUrl">
               <i class="fas fa-arrow-left"></i> Tiếp tục mua sắm
             </a>
-            <a class="btn btn-primary" asp-action="Checkout" asp-controller="Order">
+            <a class="btn btn-primary" asp-page="/Checkout">
               <i class="fas fa-credit-card"></i> Thanh toán
             </a>
+            @* <div class="text-center mt-3">
+                <a class="btn btn-primary" asp-page="/Checkout">Tiến hành đặt hàng</a>
+            </div> *@
           </div>
         }
         else

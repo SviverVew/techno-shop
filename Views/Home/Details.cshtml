@@ -1,0 +1,26 @@
+@model TechnoShop.Models.Product
+@{ Layout = "_Layout"; }
+
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-5">
+            <div class="card">
+                <img src="@(String.IsNullOrEmpty(Model.ImageUrl) ? "https://via.placeholder.com/500x300?text=No+Image" : Model.ImageUrl)" class="card-img-top" alt="@Model.Name" />
+            </div>
+        </div>
+        <div class="col-md-7">
+            <h1>@Model.Name</h1>
+            <p class="text-muted">@Model.Brand - @Model.Category</p>
+            <h3 class="text-danger">@Model.Price.ToString("c")</h3>
+            <p>@Model.Description</p>
+            <h5>Thông số kỹ thuật</h5>
+            <p>@Model.Specification</p>
+            <p><strong>Tồn kho:</strong> @Model.StockQuantity</p>
+            <form asp-controller="Cart" asp-action="Index" method="post">
+                <input type="hidden" name="productId" value="@Model.ProductID" />
+                <button type="submit" class="btn btn-success">Thêm vào giỏ</button>
+                <a asp-action="Index" class="btn btn-secondary ms-2">Quay lại</a>
+            </form>
+        </div>
+    </div>
+</div>

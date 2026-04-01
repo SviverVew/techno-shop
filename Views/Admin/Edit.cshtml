@@ -1,0 +1,74 @@
+@model Product
+@{ Layout = "_Layout"; }
+
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow">
+                <div class="card-header bg-dark text-white">
+                    <h4 class="mb-0">@(Model.ProductID == 0 ? "🆕 Thêm sản phẩm" : "🛠️ Hiệu chỉnh sản phẩm")</h4>
+                </div>
+                <div class="card-body p-4">
+                    <form asp-action="Edit" method="post" enctype="multipart/form-data">
+                        <input type="hidden" asp-for="ProductID" />
+
+                        <div class="mb-3">
+                            <label asp-for="Name" class="form-label fw-bold">Tên sản phẩm</label>
+                            <input asp-for="Name" class="form-control" placeholder="Nhập tên sản phẩm..." />
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label asp-for="Category" class="form-label fw-bold">Danh mục</label>
+                                <input asp-for="Category" class="form-control" />
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label asp-for="Brand" class="form-label fw-bold">Thương hiệu</label>
+                                <input asp-for="Brand" class="form-control" />
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label asp-for="Price" class="form-label fw-bold">Giá bán (VNĐ)</label>
+                                <input asp-for="Price" class="form-control" type="number" />
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label asp-for="StockQuantity" class="form-label fw-bold">Số lượng tồn</label>
+                                <input asp-for="StockQuantity" class="form-control" type="number" />
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">Hình ảnh sản phẩm</label>
+                            <input type="file" name="imageFile" class="form-control" accept="image/*" />
+                            <input type="hidden" asp-for="ImageUrl" />
+                            @if (!string.IsNullOrEmpty(Model.ImageUrl))
+                            {
+                                <div class="mt-2">
+                                    <small class="text-muted d-block mb-1">Ảnh hiện tại:</small>
+                                    <img src="@Model.ImageUrl" class="img-thumbnail" style="height: 100px;">
+                                </div>
+                            }
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Description" class="form-label fw-bold">Mô tả ngắn</label>
+                            <textarea asp-for="Description" class="form-control" rows="2"></textarea>
+                        </div>
+
+                        <div class="mb-4">
+                            <label asp-for="Specification" class="form-label fw-bold">Thông số kỹ thuật</label>
+                            <textarea asp-for="Specification" class="form-control" rows="3"></textarea>
+                        </div>
+
+                        <div class="d-flex justify-content-between">
+                            <a asp-action="Index" class="btn btn-outline-secondary px-4">Quay lại</a>
+                            <button type="submit" class="btn btn-success px-5">Lưu thay đổi</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -4,7 +4,7 @@ namespace TechnoShop.Models
 {
     public class Login
     {
-        [Required(ErrorMessage = "Vui lòng nhập tên đăng nhập")]
+        [Required(ErrorMessage = "Vui lòng nhập tên đăng nhập hoặc email")]
         public string? Name { get; set; }
 
         [Required(ErrorMessage = "Vui lòng nhập mật khẩu")]
