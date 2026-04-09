@@ -1,0 +1,56 @@
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using TechnoShop.Models;
+using TechnoShop.Models.VnPay;
+using TechnoShop.Services;
+
+namespace TechnoShop.Controllers
+{
+    public class PaymentController : Controller
+    {
+        private readonly IVnpayService _vnPayService;
+        private readonly TechnoShopDbContext _context;
+
+        public PaymentController(IVnpayService vnPayService, TechnoShopDbContext context)
+        {
+            _vnPayService = vnPayService;
+            _context = context;
+        }
+
+        [HttpPost]
+        public IActionResult CreatePaymentUrlVnpay(PaymentInformationModel model)
+        {
+            var url = _vnPayService.CreatePaymentUrl(model, HttpContext);
+            return Redirect(url);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> PaymentCallbackVnpay()
+        {
+            var response = _vnPayService.PaymentExecute(Request.Query);
+            
+            // Cập nhật trạng thái order khi VNPAY callback
+            if (response.Success && !string.IsNullOrWhiteSpace(response.TransactionId))
+            {
+                try
+                {
+                    var order = await _context.Orders
+                        .FirstOrDefaultAsync(o => o.OrderID.ToString() == response.OrderId);
+                    
+                    if (order != null && order.PaymentStatus == "Pending")
+                    {
+                        order.PaymentStatus = "Approved"; // Tự động duyệt khi thanh toán VnPay thành công
+                        order.VnpayTranNo = response.TransactionId;
+                        await _context.SaveChangesAsync();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Lỗi cập nhật order: {ex.Message}");
+                }
+            }
+            
+            return View(response);
+        }
+    }
+}

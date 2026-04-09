@@ -1,0 +1,44 @@
+@model TechnoShop.Models.VnPay.PaymentResponseModel
+
+@{
+    ViewData["Title"] = Model.Success ? "Thanh toán thành công" : "Thanh toán thất bại";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow-sm">
+                <div class="card-body text-center">
+                    @if (Model.Success)
+                    {
+                        <h1 class="text-success"><i class="fas fa-check-circle"></i> Thanh toán thành công</h1>
+                        <p class="lead mt-3">Đơn hàng của bạn đã được thanh toán thành công.</p>
+                    }
+                    else
+                    {
+                        <h1 class="text-danger"><i class="fas fa-times-circle"></i> Thanh toán thất bại</h1>
+                        <p class="lead mt-3">Có lỗi xảy ra trong quá trình thanh toán. Vui lòng thử lại hoặc liên hệ hỗ trợ.</p>
+                    }
+
+                    <div class="mt-4 text-start">
+                        <dl class="row">
+                            <dt class="col-sm-4">Mã đơn hàng</dt>
+                            <dd class="col-sm-8">@Model.OrderId</dd>
+
+                            <dt class="col-sm-4">Mã giao dịch</dt>
+                            <dd class="col-sm-8">@Model.TransactionId</dd>
+
+                            <dt class="col-sm-4">Phương thức</dt>
+                            <dd class="col-sm-8">@Model.PaymentMethod</dd>
+
+                            <dt class="col-sm-4">Mô tả</dt>
+                            <dd class="col-sm-8">@Model.OrderDescription</dd>
+                        </dl>
+                    </div>
+
+                    <a href="/" class="btn btn-primary btn-lg mt-3"><i class="fas fa-home"></i> Về trang chủ</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -31,8 +31,8 @@ builder.Services.AddSession(options => {
 builder.Services.AddScoped<Cart>(sp => SessionCart.GetCart(sp));
 builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 builder.Services.AddScoped<IVnpayService, VnpayService>();
-// Sử dụng ZaloPay cho checkout mới
-builder.Services.AddHttpClient<IPaymentService, ZaloPayService>();
+builder.Services.AddScoped<IPaymentService, VnpayService>();
+// ZaloPay service vẫn còn trong dự án nhưng checkout hiện dùng VnPay
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddAntiforgery();
 
@@ -53,10 +53,13 @@ app.UseSession();
 
 // --- 3. ĐỊNH TUYẾN (ROUTING) - QUY TẮC: CỤ THỂ TRƯỚC, CHUNG CHUNG SAU ---
 
-// Ưu tiên 1: Route mặc định cho Controller/Admin (Để /Admin chạy đúng)
+// Ưu tiên 1: Route Razor Pages để /Checkout page chạy đúng
+app.MapRazorPages();
+
+// Ưu tiên 2: Route mặc định cho Controller/Admin (Để /Admin chạy đúng)
 app.MapDefaultControllerRoute();
 
-// Ưu tiên 2: Các route có tiền tố rõ ràng
+// Ưu tiên 3: Các route có tiền tố rõ ràng
 app.MapControllerRoute("pagination",
     "Products/Page{productPage}",
     new { Controller = "Home", action = "Index", productPage = 1 });
@@ -72,8 +75,6 @@ app.MapControllerRoute("page", "Page{productPage:int}",
 // Ưu tiên cuối cùng: Route "Tham lam" (Catch-all) - Chỉ nhận những gì còn sót lại
 app.MapControllerRoute("category", "{category}",
     new { Controller = "Home", action = "Index", productPage = 1 });
-
-app.MapRazorPages();
 
 // --- 4. KHỞI TẠO DATA ---
 using (var scope = app.Services.CreateScope())
