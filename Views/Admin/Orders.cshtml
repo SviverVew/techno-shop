@@ -36,16 +36,9 @@
                     <td>@(order.Shipped ? "Đã giao" : "Chưa giao")</td>
                     <td>
                         <div class="btn-group" role="group">
-                            @if (order.PaymentStatus != "Approved")
-                            {
-                                <form asp-action="Approve" method="post" class="d-inline">
-                                    <input type="hidden" name="orderId" value="@order.OrderID" />
-                                    <button type="submit" class="btn btn-sm btn-warning">Duyệt</button>
-                                </form>
-                            }
                             @if (!order.Shipped)
                             {
-                                <form asp-action="MarkShipped" method="post" class="d-inline ms-1">
+                                <form asp-action="MarkShipped" method="post" class="d-inline">
                                     <input type="hidden" name="orderId" value="@order.OrderID" />
                                     <button type="submit" class="btn btn-sm btn-primary">Xác nhận giao</button>
                                 </form>

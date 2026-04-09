@@ -22,15 +22,30 @@ namespace TechnoShop.Services
                 order.OrderGuid = Guid.NewGuid().ToString();
             }
 
-            var model = new PaymentInformationModel
-            {
-                OrderType = "other",
-                Amount = (double)order.TotalPrice,
-                OrderDescription = $"Thanh toán đơn hàng {order.OrderID}",
-                Name = order.Email ?? "guest"
-            };
+            var timeZoneById = TimeZoneInfo.FindSystemTimeZoneById(_configuration["TimeZoneId"]);
+            var timeNow = TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, timeZoneById);
+            var pay = new VnPayLibrary();
+            var urlCallBack = _configuration["Vnpay:PaymentBackReturnUrl"]
+                ?? _configuration["Vnpay:ReturnUrl"]
+                ?? _configuration["PaymentCallBack:ReturnUrl"];
 
-            var paymentUrl = CreatePaymentUrl(model, context);
+            // Dùng OrderID làm vnp_TxnRef để callback có thể identify order
+            var txnRef = order.OrderID.ToString();
+
+            pay.AddRequestData("vnp_Version", _configuration["Vnpay:Version"]);
+            pay.AddRequestData("vnp_Command", _configuration["Vnpay:Command"]);
+            pay.AddRequestData("vnp_TmnCode", _configuration["Vnpay:TmnCode"]);
+            pay.AddRequestData("vnp_Amount", ((int)order.TotalPrice * 100).ToString());
+            pay.AddRequestData("vnp_CreateDate", timeNow.ToString("yyyyMMddHHmmss"));
+            pay.AddRequestData("vnp_CurrCode", _configuration["Vnpay:CurrCode"]);
+            pay.AddRequestData("vnp_IpAddr", pay.GetIpAddress(context));
+            pay.AddRequestData("vnp_Locale", _configuration["Vnpay:Locale"]);
+            pay.AddRequestData("vnp_OrderInfo", $"Thanh toán đơn hàng TechnoShop");
+            pay.AddRequestData("vnp_OrderType", "other");
+            pay.AddRequestData("vnp_ReturnUrl", urlCallBack);
+            pay.AddRequestData("vnp_TxnRef", txnRef);
+
+            var paymentUrl = pay.CreateRequestUrl(_configuration["Vnpay:BaseUrl"], _configuration["Vnpay:HashSecret"]);
             var qrCodeUrl = string.Empty;
 
             return await Task.FromResult(new PaymentResult

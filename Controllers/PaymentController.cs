@@ -30,17 +30,21 @@ namespace TechnoShop.Controllers
             var response = _vnPayService.PaymentExecute(Request.Query);
             
             // Cập nhật trạng thái order khi VNPAY callback
-            if (response.Success && !string.IsNullOrWhiteSpace(response.TransactionId))
+            // response.OrderId chứa vnp_TxnRef (OrderID)
+            // response.VnPayResponseCode = "00" tức thành công
+            if (!string.IsNullOrWhiteSpace(response.VnPayResponseCode) && 
+                response.VnPayResponseCode == "00" &&
+                !string.IsNullOrWhiteSpace(response.OrderId))
             {
                 try
                 {
-                    var order = await _context.Orders
-                        .FirstOrDefaultAsync(o => o.OrderID.ToString() == response.OrderId);
+                    var orderId = int.Parse(response.OrderId);
+                    var order = await _context.Orders.FindAsync(orderId);
                     
                     if (order != null && order.PaymentStatus == "Pending")
                     {
                         order.PaymentStatus = "Approved"; // Tự động duyệt khi thanh toán VnPay thành công
-                        order.VnpayTranNo = response.TransactionId;
+                        order.VnpayTranNo = response.TransactionId ?? response.PaymentId;
                         await _context.SaveChangesAsync();
                     }
                 }
