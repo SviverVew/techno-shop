@@ -7,16 +7,16 @@
 <div class="container mt-5">
     <div class="card shadow-sm border-0">
         <div class="card-body text-center">
-            <h2 class="card-title mb-3">Thanh toán bằng ZaloPay</h2>
-            <p class="text-muted mb-4">Quét mã QR bên dưới bằng ứng dụng ZaloPay hoặc bấm nút đi tới ZaloPay.</p>
+            <h2 class="card-title mb-3">Thanh toán bằng VnPay</h2>
+            <p class="text-muted mb-4">Nhấn bên dưới để thanh toán qua VnPay.</p>
             @if (!string.IsNullOrEmpty(Model.QrUrl))
             {
-                <img src="@Model.QrUrl" alt="ZaloPay QR" class="img-fluid" style="max-width:300px;" />
+                <img src="@Model.QrUrl" alt="VnPay QR" class="img-fluid" style="max-width:300px;" />
             }
             <div class="mt-4">
-                <a class="btn btn-primary btn-lg" href="@Model.PaymentUrl" target="_blank">Mở ZaloPay & Thanh toán</a>
+                <a class="btn btn-primary btn-lg" href="@Model.PaymentUrl" target="_blank">Mở VnPay & Thanh toán</a>
             </div>
-            <p class="text-muted mt-3">Hoặc nếu điện thoại không quét được, bấm nút trên để chuyển sang cổng ZaloPay.</p>
+            <p class="text-muted mt-3">Hoặc nếu điện thoại không quét được, bấm nút trên để chuyển sang cổng VnPay.</p>
         </div>
     </div>
 </div>

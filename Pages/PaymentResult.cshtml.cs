@@ -53,9 +53,10 @@ private readonly IPaymentService _paymentService;
 
                         if (order != null && order.PaymentStatus == "Pending")
                         {
-                            if (returnCode == "1") // ZaloPay thành công (return_code==1)
+                            if (returnCode == "1") // ZaloPay/VnPay thành công (return_code==1)
                             {
-                                order.PaymentStatus = "Success";
+                                order.PaymentStatus = "Approved"; // Tự động duyệt khi thanh toán thành công
+                                order.Shipped = false; // Chưa giao, admin sẽ confirm
                                 order.VnpayTranNo = transactionNo; // dùng chung cột để lưu mã giao dịch
                                 Message = "Thanh toán thành công đơn hàng " + order.OrderID;
                                 IsSuccess = true;

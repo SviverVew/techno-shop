@@ -8,113 +8,121 @@ build_property.PlatformNeutralAssembly =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = TechnoShop
 build_property.RootNamespace = TechnoShop
-build_property.ProjectDir = E:\Code\C#\techno-shop\
+build_property.ProjectDir = C:\Users\lengu\techno-shop\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = E:\Code\C#\techno-shop
+build_property.MSBuildProjectDirectory = C:\Users\lengu\techno-shop
 build_property._RazorSourceGeneratorDebug = 
 
-[E:/Code/C\#/techno-shop/Components/ProductSearch.razor]
+[C:/Users/lengu/techno-shop/Components/ProductSearch.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQcm9kdWN0U2VhcmNoLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Code/C\#/techno-shop/Pages/Cart.cshtml]
+[C:/Users/lengu/techno-shop/Pages/Cart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2FydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Code/C\#/techno-shop/Pages/Checkout.cshtml]
+[C:/Users/lengu/techno-shop/Pages/Checkout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2hlY2tvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Code/C\#/techno-shop/Pages/Completed.cshtml]
+[C:/Users/lengu/techno-shop/Pages/Completed.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ29tcGxldGVkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Code/C\#/techno-shop/Pages/PaymentQr.cshtml]
+[C:/Users/lengu/techno-shop/Pages/PaymentQr.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGF5bWVudFFyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Code/C\#/techno-shop/Pages/PaymentResult.cshtml]
+[C:/Users/lengu/techno-shop/Pages/PaymentResult.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGF5bWVudFJlc3VsdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Code/C\#/techno-shop/Pages/ViewImports.cshtml]
+[C:/Users/lengu/techno-shop/Pages/ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVmlld0ltcG9ydHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Code/C\#/techno-shop/Pages/_CartLayout.cshtml]
+[C:/Users/lengu/techno-shop/Pages/_CartLayout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX0NhcnRMYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Code/C\#/techno-shop/Pages/_ViewImports.cshtml]
+[C:/Users/lengu/techno-shop/Pages/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Code/C\#/techno-shop/Pages/_ViewStart.cshtml]
+[C:/Users/lengu/techno-shop/Pages/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Code/C\#/techno-shop/Views/Account/Login.cshtml]
+[C:/Users/lengu/techno-shop/Views/Account/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Code/C\#/techno-shop/Views/Account/Register.cshtml]
+[C:/Users/lengu/techno-shop/Views/Account/Register.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Code/C\#/techno-shop/Views/Admin/Edit.cshtml]
+[C:/Users/lengu/techno-shop/Views/Admin/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Code/C\#/techno-shop/Views/Admin/Index.cshtml]
+[C:/Users/lengu/techno-shop/Views/Admin/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Code/C\#/techno-shop/Views/Admin/Orders.cshtml]
+[C:/Users/lengu/techno-shop/Views/Admin/Orders.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cT3JkZXJzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Code/C\#/techno-shop/Views/Components/CartSummary/Default.cshtml]
+[C:/Users/lengu/techno-shop/Views/Checkout/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2hlY2tvdXRcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/lengu/techno-shop/Views/Components/CartSummary/Default.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tcG9uZW50c1xDYXJ0U3VtbWFyeVxEZWZhdWx0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Code/C\#/techno-shop/Views/Components/Footer/Default.cshtml]
+[C:/Users/lengu/techno-shop/Views/Components/Footer/Default.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tcG9uZW50c1xGb290ZXJcRGVmYXVsdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Code/C\#/techno-shop/Views/Home/Details.cshtml]
+[C:/Users/lengu/techno-shop/Views/Home/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Code/C\#/techno-shop/Views/Home/Index.cshtml]
+[C:/Users/lengu/techno-shop/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Code/C\#/techno-shop/Views/Shared/Components/CartSummary/Default.cshtml]
+[C:/Users/lengu/techno-shop/Views/Payment/PaymentCallbackVnpay.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGF5bWVudFxQYXltZW50Q2FsbGJhY2tWbnBheS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/lengu/techno-shop/Views/Shared/Components/CartSummary/Default.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcQ2FydFN1bW1hcnlcRGVmYXVsdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Code/C\#/techno-shop/Views/Shared/Components/Footer/Default.cshtml]
+[C:/Users/lengu/techno-shop/Views/Shared/Components/Footer/Default.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcRm9vdGVyXERlZmF1bHQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Code/C\#/techno-shop/Views/Shared/Components/NavigationMenu/Default.cshtml]
+[C:/Users/lengu/techno-shop/Views/Shared/Components/NavigationMenu/Default.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcTmF2aWdhdGlvbk1lbnVcRGVmYXVsdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Code/C\#/techno-shop/Views/Shared/ProductSummary.cshtml]
+[C:/Users/lengu/techno-shop/Views/Shared/ProductSummary.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXFByb2R1Y3RTdW1tYXJ5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Code/C\#/techno-shop/Views/Shared/_Layout.cshtml]
+[C:/Users/lengu/techno-shop/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Code/C\#/techno-shop/Views/_ViewImports.cshtml]
+[C:/Users/lengu/techno-shop/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Code/C\#/techno-shop/Views/_ViewStart.cshtml]
+[C:/Users/lengu/techno-shop/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
